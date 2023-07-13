@@ -27,10 +27,9 @@ def PickNumber(numbers,pattern):
   if len(list(pattern.items())) != 0:
     for i in range(len(list(pattern.items()))):
       used_numbers.append(list(pattern.items())[i][1])  
-  
-  pick = str(numbers[secrets.randbelow(len(numbers))])
+  pick = int(numbers[secrets.randbelow(len(numbers))])
   while pick in used_numbers:
-    pick = str(numbers[secrets.randbelow(len(numbers))])
+    pick = int(numbers[secrets.randbelow(len(numbers))])
   return int(pick)
 
 #CREATE THE DICT THAT ASSOCIATES LETTERS TO NUMBERS
@@ -38,7 +37,8 @@ def CreatePattern(numbers):
   alphabet = list(string.ascii_letters)
   pattern = {}
   for i in range(len(numbers)):
-    pattern[alphabet[i]] = PickNumber(numbers, pattern)
+    pick = PickNumber(numbers, pattern)
+    pattern[alphabet[i]] = pick
 
   #SORT PATTERN IN KEY VALUE BIG TO SMALL
   pattern = dict(sorted(pattern.items(), key=lambda x :int(x[1]), reverse=True))
