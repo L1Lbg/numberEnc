@@ -19,4 +19,4 @@ print(f'Generated key : \n {key}')
 
 #DECRYPT KEY WITH PATTERN
 num = DecryptKey(key, pattern)
-print(f'Decrypted num : \n {num}')
+print(f'Decrypted number : \n {num}')
